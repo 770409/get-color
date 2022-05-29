@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>77-色差遊戲</title>
+    <link rel="shortcut icon" href="./eileen.png">
+    <link rel="shortcut icon" href="./Custom-Icon-Design-Lovely-Weather-Fog-day.ico">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #FC6F60;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .homePage {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+
+        @keyframes diooo {
+            0% {
+                bottom: calc(100% - 330px);
+                left: calc(100% - 40px);
+            }
+
+            10% {
+                bottom: calc(0% - 115px);
+                left: calc(55% - 120px);
+                transform: translate(-100%, -100%) rotate(0deg);
+                background-color: rgb(255, 218, 162);
+
+            }
+
+            20% {
+                bottom: calc(55% - 180px);
+                left: calc(0% - -180px);
+                transform: translate(-100%, -100%) rotate(-45deg);
+                background-color: rgb(218, 255, 183);
+
+            }
+
+            30% {
+                bottom: calc(100% - 330px);
+                left: calc(80% - 120px);
+                transform: translate(-100%, -100%) rotate(-90deg);
+                background-color: rgb(55, 122, 102);
+
+            }
+
+            40% {
+                bottom: calc(0% - 115px);
+                left: calc(70% - 115px);
+                transform: translate(-100%, -100%) rotate(-45deg);
+                background-color: rgb(128, 112, 112);
+
+            }
+
+            50% {
+                bottom: calc(100% - 330px);
+                left: calc(60% - 115px);
+                transform: translate(-100%, -100%) rotate(-90deg);
+                background-color: rgb(253, 173, 0);
+
+            }
+
+            60% {
+                bottom: calc(0% - 115px);
+                left: calc(30% - 115px);
+                transform: translate(-100%, -100%) rotate(-135deg);
+                background-color: rgb(21, 19, 58);
+
+            }
+
+            70% {
+                bottom: calc(30% - 115px);
+                left: calc(0% - -180px);
+                background-color: rgb(178, 237, 255);
+
+            }
+
+            80% {
+                bottom: calc(100% - 330px);
+                left: calc(75% - 120px);
+                background-color: rgb(243, 154, 255);
+
+            }
+
+            90% {
+                bottom: calc(0% - 115px);
+                left: calc(100% - 40px);
+                background-color: rgb(211, 151, 151);
+
+            }
+
+            100% {
+                bottom: calc(100% - 330px);
+                left: calc(100% - 40px);
+                background-color: rgb(17, 100, 155);
+            }
+
+
+        }
+
+        @keyframes diooo2 {
+            0% {
+                bottom: calc(100% - 330px);
+                left: calc(100% - 40px);
+            }
+
+            10% {
+                bottom: calc(0% - 195px);
+                left: calc(55% - 120px);
+                transform: translate(-100%, -100%) rotate(0deg);
+                background-color: rgb(255, 218, 162);
+
+            }
+
+            20% {
+                bottom: calc(25% - 190px);
+                left: calc(0% - -310px);
+                transform: translate(-100%, -100%) rotate(-45deg);
+                background-color: rgb(218, 255, 183);
+
+            }
+
+            30% {
+                width: 350px;
+                height: 350px;
+                bottom: calc(100% - 750px);
+                left: calc(80% - 120px);
+                transform: translate(-100%, -100%) rotate(-110deg);
+                background-color: rgb(55, 122, 102);
+
+
+            }
+
+            40% {
+                bottom: calc(0% - 212px);
+                left: calc(80% - 115px);
+                transform: translate(-100%, -100%) rotate(-45deg);
+                background-color: rgb(128, 112, 112);
+
+            }
+
+            50% {
+                bottom: calc(100% - 300px);
+                left: calc(60% - 115px);
+                transform: translate(-100%, -100%) rotate(-90deg);
+                background-color: rgb(253, 173, 0);
+                width: 150px;
+                height: 150px;
+
+            }
+
+            60% {
+                bottom: calc(0% - 160px);
+                left: calc(55% - 115px);
+                transform: translate(-100%, -100%) rotate(-135deg);
+                background-color: rgb(21, 19, 58);
+
+            }
+
+            70% {
+                bottom: calc(30% - 115px);
+                left: calc(0% - -290px);
+                background-color: rgb(178, 237, 255);
+
+            }
+
+            80% {
+                bottom: calc(100% - 760px);
+                left: calc(75% - 120px);
+                background-color: rgb(243, 154, 255);
+                width: 350px;
+                height: 350px;
+
+            }
+
+            90% {
+                bottom: calc(0% - 240px);
+                left: calc(100% - 115px);
+                background-color: rgb(211, 151, 151);
+
+            }
+
+            100% {
+                bottom: calc(100% - 330px);
+                left: calc(100% - 40px);
+                background-color: rgb(17, 100, 155);
+            }
+
+
+        }
+
+        .doi {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(255, 163, 163);
+            border-radius: 15px;
+            position: absolute;
+
+            bottom: calc(100% - 330px);
+            left: calc(100% - 40px);
+
+            transform: translate(-100%, -100%) rotate(45deg);
+            transition: .8s;
+            animation: diooo 10s cubic-bezier(0.54, 0.35, 1, 1) .25s infinite alternate;
+        }
+
+        .doi:hover {
+            transform: translate(-100%, -100%) rotate(720deg);
+        }
+
+        .doi2 {
+            animation: diooo2 10s cubic-bezier(0.54, 0.35, 1, 1) .25s infinite alternate;
+
+        }
+
+
+        h2 {
+            color: rgb(255, 255, 255);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            top: 100%;
+        }
+
+        .homePageBtn {
+            width: 600px;
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            transform: translate(-50%, 0);
+            display: flex;
+            justify-content: space-around;
+
+        }
+        @keyframes conmove {
+            0% {
+                top: 38%;
+            }
+
+        }
+
+
+
+        .conWord {
+            font-size: 50px;
+            font-weight: bolder;
+            letter-spacing: 3px;
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 43%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            animation: conmove .25s cubic-bezier(1, -0.02, 1, 1) 0s infinite alternate;
+
+
+        }
+
+        @keyframes p2Con {
+            100% {
+                background-image: url(./main.png);
+                width: 200px;
+                height: 200px;
+
+
+            }
+        }
+
+        .p2 {
+            background-image: url(./13975c87e1d8.png);
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            top: 250px;
+            width: 200px;
+            height: 200px;
+    
+
+        }
+        .p2:hover{
+            background-image: url(./2ef26cd5f1cf.png);
+
+        }
+
+        .congratulation {
+            display: block;
+            background-image: url(./13975c87e1d8.png);
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            top: 250px;
+            width: 200px;
+            height: 200px;
+            animation: p2Con .8s cubic-bezier(0.15,-0.86, 0.54, 2.49) .8s infinite alternate;
+
+        }
+
+        .bigBox {
+            width: 500px;
+            height: 500px;
+            background: rgb(255, 200, 148);
+            display: flex;
+            justify-content: space-around;
+            align-content: space-around;
+            flex-wrap: wrap;
+            padding: 1%;
+            border-radius: 15px;
+
+
+        }
+
+        .box {
+            border-radius: 15px;
+            border: 5px solid rgb(255, 255, 255);
+
+        }
+
+        .answer_box {
+            opacity: .5;
+        }
+
+        .answer_boxBorder {
+            border: 1px solid rgb(245, 141, 72);
+
+        }
+
+        .playPage {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .numberBox {
+            width: 200px;
+            height: 390px;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(0, -50%);
+
+        }
+
+
+
+        .btnbox {
+            height: 120px;
+            position: absolute;
+            top: 210px;
+            left: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+        }
+
+        .btn {
+            padding: 5px;
+            background-color: rgb(255, 207, 163);
+            border: 1px dashed rgb(109, 93, 93);
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        .btn:active {
+            background-color: rgb(245, 141, 72);
+            color: rgb(255, 255, 255);
+        }
+
+        .hint {
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            transform: translate(0, -50%);
+        }
+
+
+
+        .time {
+            position: absolute;
+            top: 54px;
+            left: 105px;
+
+
+        }
+
+        .TT {
+            position: absolute;
+            left: 48px;
+            top: 45px;
+            padding: 5px;
+            background-color: rgba(255, 207, 163, 0.54);
+            border: 1px dashed rgb(109, 93, 93);
+        }
+
+        .totalRightText {
+            position: absolute;
+            top: 125px;
+            left: 35px;
+            padding: 5px;
+            background-color: rgba(255, 207, 163, .54);
+            border: 1px dashed rgb(109, 93, 93);
+
+        }
+
+        .right {
+            position: absolute;
+            left: 119px;
+            top: 131px;
+        }
+
+        .word {
+            color: rgb(100, 82, 66);
+            font-size: 35px;
+        }
+
+        .getnumber {
+            position: absolute;
+            top: 74%;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+
+        }
+
+        .none {
+            display: none;
+        }
+
+        table {
+            position: absolute;
+            top: 30%;
+            left: 68%;
+            width: 350px;
+            background-color: rgb(255, 207, 163);
+            text-align: center;
+            border: 1px dashed rgb(109, 93, 93);
+        }
+
+        thead {
+            padding: 0 50px;
+            border: 1px dashed rgb(109, 93, 93);
+            background-color: rgb(245, 141, 72);
+            color: rgb(255, 255, 255);
+
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="homePage">
+        <div class="doi"></div>
+        <div class="wordbox">
+            <h2>色弱遊戲</h2>
+            <h2>77森呼吸製造</h2>
+        </div>
+        <div class="conWord">Congratulation!</div>
+        <div class="img p2"></div>
+        <div class="getnumber"></div>
+        <div class="homePageBtn">
+            <div class="btn gohomee">返回首頁</div>
+            <div class="btn st2">Go!</div>
+            <div class="btn showR" onclick="search_scorng_b()">查看計分</div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>場次</td>
+                    <td>得分</td>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+
+        </table>
+
+
+    </section>
+
+    <section class="playPage none">
+        <div class="doi doi2"></div>
+        <div class="bigBox"></div>
+        <div class="btn hint" onclick="hint_b()">提示</div>
+        <div class="numberBox">
+            <div class="btnbox">
+                <div class="btn stop" tabindex="1">暫停一下</div>
+                <div class="btn con">繼續遊戲</div>
+            </div>
+
+            <div class="rtBox">
+                <div class="totalRightText">答對題數:_____</div>
+                <div class="right">0分</div>
+            </div>
+            <div class="rtBox">
+                <div class="TT">計時:______</div>
+                <div class="time">30s</div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <script>
+        let playPage = document.querySelector('.playPage');
+        let homePage = document.querySelector('.homePage');
+        const c = 256;
+        let level = 2;
+        let count = 0;
+        let totalRight = 0; //全部答對題數
+        let right = document.querySelector('.right');
+        let stopp = document.querySelector('.stop');
+        let con = document.querySelector('.con');
+        let doi2 = document.querySelector('.doi2');
+
+        let size;
+        let color;
+        let answer;
+        let timeID;//我是計數器~
+        let bigBox = document.querySelector('.bigBox');
+        let img = document.querySelector('.img');
+        let conWord = document.querySelector('.conWord');
+        let getnumber = document.querySelector('.getnumber');
+        let gohomee = document.querySelector('.gohomee');
+        let showR = document.querySelector('.showR');
+
+        //表格
+        let tbody = document.querySelector('tbody');
+        let plaieddatas = [];//資料庫的資料拿出來要的，放入陣列
+        let newData = {};//每一筆資料物件盒;
+        let rounds = 0;
+        let table = document.querySelector('table')
+
+
+
+        let timeS = 30;
+        let time = document.querySelector('.time')
+
+        conWord.classList.add('none');
+
+        gohomee.classList.add('none');
+        showR.classList.add('none');
+        table.classList.add('none');
+        con.classList.add('none');
+
+        answer = Math.floor(Math.random() * level ** 2) + 1;
+        let answer_box = document.querySelector(`.bigBox .box:nth-child(${answer})`);
+
+        // 剛開始按鈕可以不見~
+
+        document.querySelector('.st2').addEventListener('click', function () {
+            alert('30秒開始計時');
+
+            rounds++;
+
+            playPage.classList.remove('none');
+            homePage.classList.add('none');
+            table.classList.add('none');
+            totalRight = 0;
+            right.innerHTML = totalRight + '分';
+
+            level = 2;
+
+
+            countdown();
+            boxgame();
+            doi2.classList.add('none');
+            count = 0;
+            bigBox.style.background = 'rgb(255, 255, 255)';
+
+            stopp.addEventListener('click', function () {
+
+                clearInterval(timeID);
+
+                bigBox.innerHTML = '休息一下';
+                con.classList.remove('none');
+
+                con.addEventListener('click', function () {
+                    countdown();
+                    boxgame();
+                    con.classList.add('none');
+                });
+            });
+
+
+            gohomee.addEventListener('click', function () {
+                table.classList.add('none');
+                // 在弄回首頁的長相
+                img.classList.add('p2');
+                img.classList.remove('congratulation');
+                conWord.classList.add('none');
+                getnumber.innerHTML = '';
+                document.querySelector('.st2').innerHTML = 'Go!';
+
+
+
+            });
+
+
+        });
+
+
+        //計分
+        function search_scorng_b() {
+            table.classList.remove('none');
+            show();
+        }
+        function scorng() {
+            newData = {
+                round: rounds,
+                thisRound_totalRight: totalRight,//抓每一場的分數?
+            }
+            plaieddatas.push(newData);
+
+        }
+
+        function show() {
+            tbody.innerHTML = '';
+            plaieddatas.forEach((itemND, index) => {
+                tbody.innerHTML +=
+                    `
+                <tr>
+                    <td>round ${itemND.round}</td>
+                    <td>${itemND.thisRound_totalRight}分</td>
+                </tr>
+                `;
+            });
+        };
+
+        function boxgame() {
+
+            // 設值
+
+
+            size = 100 / level;
+            color = `rgb(${Math.floor(Math.random() * c)},${Math.floor(Math.random() * c)},${Math.floor(Math.random() * c)})`;
+            //第一步：清空
+            bigBox.innerHTML = '';
+            // 迴圈生格子//All所有.box
+            for (let i = 0; i < level ** 2; i++) {
+                //若非答案生出叫.box的寶寶
+                //其他就是要生出叫.answer_box的寶寶
+                bigBox.innerHTML += `<div class="box" style="width:${size}%;height:${size}%;background-color:${color};"></div>` //用樣板語言寫
+
+            };
+            // 用亂數設答案的參數
+            answer = Math.floor(Math.random() * level ** 2) + 1;
+            let answer_box = document.querySelector(`.bigBox .box:nth-child(${answer})`);
+            answer_box.style.opacity = `${0.7 + level * 0.01}`;
+
+            // if(hint_b()){
+            //     answer_box.classList.add('answer_boxBorder');
+
+
+            // }
+
+            answer_box.addEventListener('click', function () {
+                count++;
+                totalRight++;
+                right.innerHTML = totalRight + '分';
+                if (count == level) {
+                    level++;
+                    count = 0;
+                    console.log(level);
+
+                }
+
+                if (level > 15) {
+                    alert('棒棒~在玩一次~');
+                    return;
+                    count = 0;
+
+
+                }
+                boxgame();
+                doi2.classList.add('none');
+
+
+
+
+
+
+
+
+            });
+
+
+
+        };
+
+        function hint_b() {
+            doi2.classList.remove('none');
+            // answer_box.classList.add('answer_boxBorder');
+
+        }
+
+        function countdown() {//叫喚後
+            clearInterval(timeID);//1.清除上個計數器
+            timeID = setInterval(function () {//2.這時計數器啟動
+                if (timeS <= 0) {
+
+                    clearInterval(timeID);
+                    alert('查看成績不?');
+                    playPage.classList.add('none');
+                    homePage.classList.remove('none');
+                    img.classList.remove('p2');
+                    img.classList.add('congratulation');
+                    conWord.classList.remove('none');
+
+                    getnumber.innerHTML = '你答對了' + totalRight + '題!';
+
+
+                    gohomee.classList.remove('none');
+                    showR.classList.remove('none');
+
+                    document.querySelector('.st2').innerHTML = '在玩一次';
+                    timeS = 30;
+                    time.innerHTML = timeS + "s";
+                    scorng();
+                } else {
+                    timeS--;
+                    time.innerHTML = timeS + "s";
+                }
+
+            }, 1000);
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
